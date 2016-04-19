@@ -22,12 +22,12 @@ angular.module('ambrosia').controller('MainCtrl',
                 }),
                 function(dat){
                     if (dat.height > dat.width) {
-                        dat.nheight = '300px'
-                        dat.nwidth = '200px'
+                        dat.nheight = '100%'
+                        dat.nwidth = 'auto'
                         return dat
                     } else if (dat.height < dat.width) {
-                        dat.nheight = '200px'
-                        dat.nwidth = '300px'
+                        dat.nheight = 'auto'
+                        dat.nwidth = '100%'
                         return dat
                     } else {
                         dat.nheight = '250px'
@@ -41,6 +41,9 @@ angular.module('ambrosia').controller('MainCtrl',
             }
             return story
         }), function (dat) { return dat.imgs.length > 0 })
+        while ($scope.ctrl.stories.length % 3 !== 0) {
+            $scope.ctrl.stories.push({})
+        }
         console.log($scope.ctrl.stories)
         $rootScope.loading = false
     })
