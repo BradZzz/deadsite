@@ -63,6 +63,7 @@
     "path": "^0.12.7",
     "q": "^1.4.1",
     "request": "^2.69.0",
+    "request-promise": "^3.0.0",
     "s3-uploader": "^1.1.0",
     "underscore": "^1.8.3",
     "yahoo-finance": "^0.2.12"

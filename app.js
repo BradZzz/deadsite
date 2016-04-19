@@ -79,6 +79,7 @@ if (app.get('prod')) {
 }
 
 // setup routes
+require('./router/routes/aggregate')(app)
 require('./router/routes/cast')(app)
 require('./router/routes/ledger')(app)
 require('./router/routes/login')(app)

@@ -44,6 +44,8 @@
 
   <base href="/">
 
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" >
   <!-- DONT FUCKING USE THE MINIFIED STYLE SHEETS!!! -->
   <!-- build:css /build/css/app.min.css -->
 <link rel="stylesheet" href="/assets/css/app.css">
@@ -53,6 +55,7 @@
 <link rel="stylesheet" href="/assets/third-party/angular-material/angular-material.css">
 <link rel="stylesheet" href="/assets/third-party/angular-flash-alert/dist/angular-flash.css">
 <link rel="stylesheet" href="/assets/third-party/angular-material-icons/angular-material-icons.css">
+<link rel="stylesheet" href="/assets/third-party/angular-carousel/dist/angular-carousel.css">
 <!-- endbuild -->
 </head>
 
@@ -60,7 +63,6 @@
 
 <!-- angular view content injected here -->
 <flash-message duration="5000" show-close="true" on-dismiss="$root.flashCallback(flash)" class="flash-bar"></flash-message>
-<div id="navbar" ng-controller="HeaderCtrl"><div ng-include src="'assets/html/partials/header.html'"></div></div>
 <div class="loading-bar" ng-class="{'show' : $root.loading, 'remove' : !$root.loading}" layout="row" layout-sm="column" layout-align="space-around">
   <md-progress-circular md-mode="indeterminate"></md-progress-circular>
 </div>
@@ -70,6 +72,8 @@
 <!-- build:js /build/js/app.min.js -->
 <script src="/assets/third-party/angular/angular.min.js"></script>
 <script src="/assets/third-party/jquery/dist/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <script src="/assets/third-party/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script src="/assets/third-party/angular-animate/angular-animate.min.js"></script>
@@ -99,6 +103,8 @@
 <script src="/assets/third-party/highcharts/modules/exporting.js"></script>
 <script src="/assets/third-party/ng-file-upload/ng-file-upload.js"></script>
 <script src="/assets/third-party/ng-file-upload-shim/ng-file-upload.js"></script>
+<script src="/assets/third-party/angular-touch/angular-touch.js"></script>
+<script src="/assets/third-party/angular-carousel/dist/angular-carousel.js"></script>
 <script src="/assets/third-party/aws-sdk/dist/aws-sdk.js"></script>
 
 <script src="/assets/js/app.js"></script>
@@ -112,6 +118,8 @@
 
 <script src="/assets/js/directives/se-upload.js"></script>
 <script src="/assets/js/directives/se-timer.js"></script>
+<script src="/assets/js/directives/se-preview.js"></script>
+<script src="/assets/js/directives/se-imageloaded.js"></script>
 
 <script src="/assets/js/lib/mpl.js"></script>
 
@@ -124,6 +132,7 @@
 <script src="/assets/js/services/se-theme.js"></script>
 <script src="/assets/js/services/se-user.js"></script>
 <script src="/assets/js/services/se-sender.js"></script>
+<script src="/assets/js/services/se-reddit.js"></script>
 <!-- endbuild -->
 
 <!-- external dependencies -->

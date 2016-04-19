@@ -33,7 +33,11 @@
     "videogular-poster": "^1.4.3",
     "videogular-ima-ads": "^1.4.3",
     "videogular-angulartics": "^1.4.3",
-    "angular-sanitize": "^1.5.3"
+    "angular-sanitize": "^1.5.3",
+    "link-preview": "^1.0.0",
+    "cheerio": "^0.20.0",
+    "angular-carousel": "^1.0.1",
+    "angular-touch": "^1.5.5"
   },
   "resolutions": {
     "angular": "~1.4.2"

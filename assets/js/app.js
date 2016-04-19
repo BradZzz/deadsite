@@ -13,7 +13,8 @@ var modules = [
   'com.2fdevs.videogular',
   'com.2fdevs.videogular.plugins.controls',
   'com.2fdevs.videogular.plugins.overlayplay',
-  'com.2fdevs.videogular.plugins.poster'
+  'com.2fdevs.videogular.plugins.poster',
+  'angular-carousel'
 ]
 
 var role = {
@@ -31,47 +32,10 @@ function ($locationProvider, $stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise("/")
 
-  $stateProvider.state('site', {
-    'abstract': true,
-    template: '<ui-view/>',
-    resolve: {
-      authorize: ['seAuthorization', function(seAuthorization) { return seAuthorization.authorize() } ]
-    }
-  }).state('home', {
+  $stateProvider.state('home', {
     url: "/",
-    parent: 'site',
     templateUrl: "/assets/html/home/main.html",
     controller: "MainCtrl",
-  }).state('login', {
-    url: "/login",
-    templateUrl: "/assets/html/home/login.html",
-    controller: "HeaderCtrl",
-  }).state('media', {
-    url: "/media?value&type",
-    parent: 'site',
-    templateUrl: "/assets/html/home/media.html",
-    controller: "MediaCtrl",
-  }).state('profile', {
-    url: "/profile",
-    parent: 'site',
-    templateUrl: "/assets/html/home/profile.html",
-    controller: "ProfileCtrl",
-    data: { role: 1 }
-  }).state('analytics', {
-    url: "/analytics",
-    parent: 'site',
-    templateUrl: "/assets/html/home/analytics.html",
-    controller: "AnalyticsCtrl",
-    data: { role: 1 }
-  }).state('localplayer', {
-    url: "/plocal?path",
-    parent: 'site',
-    templateUrl: "/assets/html/home/localplayer.html",
-    controller: "LocalPlayerCtrl",
-    data: { role: 1 }
-  }).state('mpl', {
-    url: "/mpl",
-    templateUrl: "/assets/html/misc/mpl.html"
   })
 
   $locationProvider.html5Mode(true)

@@ -120,7 +120,7 @@ module.exports = function (app) {
     		return res.status(500).json({ debug: err })
     	  })
     	}, function(err) {
-        return res.status(500).json({ debug: err })
+          return res.status(500).json({ debug: err })
         })
       })
     })
