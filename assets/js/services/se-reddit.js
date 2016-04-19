@@ -14,6 +14,9 @@ function ($http, $q, $rootScope, Flash)
       } else {
           return $http({
             url: '/agg/get',
+            params: {
+               params : 'google+googlefiber',
+            },
             method: 'GET'
           }).then(function (response) {
             console.log(response)

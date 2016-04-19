@@ -14,7 +14,7 @@ angular.module('ambrosia').controller('MainCtrl',
         console.log(result)
         $scope.ctrl.stories = _.filter(_.map(
             _.filter(result, function(site) {
-                return site.url.indexOf('reddit') == -1 && site.url.indexOf('i.imgur') == -1}
+                return site.url.indexOf('reddit') == -1 && site.url.indexOf('imgur') == -1}
             ), function(story) {
             story.imgs = _.map(
                 _.filter(story.imgs, function(img) {
@@ -36,6 +36,9 @@ angular.module('ambrosia').controller('MainCtrl',
                     }
                 }
             )
+            if (story.imgs < 1) {
+                story.imgs.push({ src : '/assets/img/test/google_logo.png', nheight : '120px', nwidth : '300px' })
+            }
             return story
         }), function (dat) { return dat.imgs.length > 0 })
         console.log($scope.ctrl.stories)
