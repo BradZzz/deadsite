@@ -25,32 +25,9 @@ String.prototype.capitalize = function() {
 
 module.exports = function (app) {
 
-    /*var pLedger = {}
-          var obj = new pendingLedger()
-          var id = req.user._id
-
-          pLedger.name = params.name
-          pLedger.sym = params.sym
-          pLedger.cost = params.cost
-          pLedger.user = id
-          pLedger.token = obj.generateHash(id + process.env.TOKEN_SECRET)
-
-          console.log('printing ledger')
-          console.log(pLedger)*/
-    /*Site.findOneAndUpdate({ sym : params.sym, user : req.user._id }, pLedger, {upsert:true,new:true}, function(err, ledger){
-      if (err) {
-        console.log(err)
-        return res.status(500).json(err)
-      } else {
-        return res.status(200).json(ledger)
-      }
-    })*/
-
     app.get('/agg/update', function (req, res) {
         if ('params' in req.query) {
             var url = 'https://www.reddit.com/r/' + req.query.params.replace(' ','+') + '/new.json?sort=hot&limit=100'
-            console.log(url)
-            //var url = 'https://www.reddit.com/r/gifs+reallifedoodles/new.json?sort=new&limit=20'
             request(url, function(error, response, html){
                 if (error) {
                     return res.status(500).json(error)
@@ -75,8 +52,10 @@ module.exports = function (app) {
                     var imgs = _.map($('img'), function (value, key) {
                       return value.attribs
                     })
-                    console.log($('title').text())
-                    var item = { cat : req.query.params.replace(' ','+'), url : meta.url, urlTitle : $('title').text(), title : meta.title, imgs : imgs }
+                    var vids = _.map($('video'), function (value, key) {
+                      return value.attribs
+                    })
+                    var item = { cat : req.query.params.replace(' ','+'), url : meta.url, urlTitle : $('title').text(), title : meta.title, imgs : imgs, vids : vids }
                     attribs.push(item)
                   })
                   cache.get = attribs

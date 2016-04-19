@@ -144,8 +144,8 @@ button.md-raised.active:hover {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@color1', endColorstr='@color2', GradientType=0) !important;
 }
 .center-horizontal {
-  text-align: center;
-  margin: 0 auto;
+  text-align: center !important;
+  margin: 0 auto !important;
 }
 .center-vertical-parent {
   display: inline-flex;
