@@ -281,125 +281,89 @@ button.md-raised.active:hover {
 .loading-bar {
   margin: 30vh auto 0 auto;
 }
-.header .nav-media-wrapper {
-  -webkit-transition: all 0.5s ease-out;
-  -moz-transition: all 0.5s ease-out;
-  -o-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
+h1,
+h2,
+h3,
+h4 {
+  color: #ffffff;
 }
-.header .nav-media-wrapper .nav-background {
+.header {
+  background: #ffffff;
+}
+.background {
+  background: #ffffff;
+}
+.card {
+  background: #ffffff;
+}
+.wallpaper {
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+}
+.main {
+  height: 100%;
+  -webkit-transition: all 0.75s ease-in-out;
+  -moz-transition: all 0.75s ease-in-out;
+  -o-transition: all 0.75s ease-in-out;
+  transition: all 0.75s ease-in-out;
+}
+.main .layer {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: gray;
-  opacity: 0;
-}
-.header .nav-media-wrapper .nav-background:hover {
-  opacity: .2;
-}
-.header .nav-media:hover {
-  border: 1px solid #fff;
-}
-.header md-content.top-nav {
-  color: white !important;
-}
-.header .nav-icons .nav-home {
-  text-align: right;
-  max-width: 60px;
-  margin-right: 80px;
-}
-.header .profile-avatar {
-  border: 1px solid rgba(225, 232, 235, 0.8);
-}
-.main .parent:hover {
-  opacity: .2;
-}
-.main .sq-button {
-  max-height: 20px;
-  max-width: 50px;
-}
-.main .nav-title {
-  font-weight: bold;
-  border-bottom: 1px solid;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-}
-.main .img-wrapper {
-  position: relative;
-  min-height: 400px;
-  max-height: 400px;
-  min-width: 300px;
-  max-width: 300px;
-}
-.main .img-wrapper img {
-  position: absolute;
-  max-height: 100%;
-  max-width: 100%;
-  min-width: 100%;
-  min-height: 100%;
-}
-.main .img-wrapper .show-box {
-  -webkit-transition: opacity 0.5s ease-out;
-  -moz-transition: opacity 0.5s ease-out;
-  -o-transition: opacity 0.5s ease-out;
-  transition: opacity 0.5s ease-out;
-  position: absolute;
-  max-height: 100%;
-  max-width: 100%;
-  min-width: 100%;
-  min-height: 100%;
-  opacity: 0;
-}
-.main .img-wrapper .show-box:hover {
-  background: black;
-  opacity: .5;
-}
-.local-player {
-  border: 2px solid;
-  border-radius: 5px;
-  height: 90vh;
-}
-.local-player .videogular-container {
-  width: 100%;
-  height: 320px;
-  margin: auto;
-  overflow: hidden;
-}
-.media .content .media-image-wrapper {
-  position: relative;
-  min-height: 220px;
-  max-height: 220px;
-  min-width: 150px;
-  max-width: 150px;
-}
-.media .content .media-image-wrapper .media-image {
-  width: 100%;
-  height: 100%;
-  border: 2px solid #000;
-  border-radius: 5px;
-  position: absolute;
-}
-.media .content .media-image-wrapper .media-overlay {
-  -webkit-transition: all 0.5s ease-out;
-  -moz-transition: all 0.5s ease-out;
-  -o-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-}
-.media .content .media-image-wrapper .media-overlay .media-overlay-background {
-  background: gray;
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-  margin: 2px;
-  position: absolute;
-  opacity: .5;
-}
-.media .content .media-image-wrapper .media-overlay:hover {
+  left: 0;
+  top: 0;
+  display: block;
   opacity: 1;
+}
+.main .alt1 {
+  background: #485563;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #485563, #29323c);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #485563, #29323c);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.main .alt2 {
+  background: #134E5E;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #134E5E, #71B280);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #134E5E, #71B280);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.main .alt3 {
+  background: #606c88;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #606c88, #3f4c6b);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #606c88, #3f4c6b);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.main .alt4 {
+  background: #a73737;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #a73737, #7a2828);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #a73737, #7a2828);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.main .alt5 {
+  background: #4b6cb7;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #4b6cb7, #182848);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #4b6cb7, #182848);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.main .animate-show.ng-hide-add,
+.main .animate-show.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+.main .animate-show.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px;
 }
 .analytics .content {
   position: relative;

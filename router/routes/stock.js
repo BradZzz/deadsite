@@ -1,26 +1,17 @@
-/***
-nasdaq stocks
-http://www.nasdaq.com/screening/companies-by-industry.aspx?exchange=NASDAQ&render=download
-nyse stocks
-http://www.nasdaq.com/screening/companies-by-industry.aspx?exchange=NYSE&render=download
-asx stocks
-http://www.asx.com.au/asx/research/ASXListedCompanies.csv
-***/
-
-var csv  = require('fast-csv')
-var fs   = require('fs')
-var Q    = require('q')
-var finance = require('yahoo-finance')
-var moment = require('moment')
-var Chance = require('chance'), chance = new Chance()
-var _ = require('underscore')
-var request = require('request')
-var cheerio = require('cheerio')
-var mongoose = require('mongoose')
+var csv        = require('fast-csv')
+var fs         = require('fs')
+var Q          = require('q')
+var finance    = require('yahoo-finance')
+var moment     = require('moment')
+var Chance     = require('chance'), chance = new Chance()
+var _          = require('underscore')
+var request    = require('request')
+var cheerio    = require('cheerio')
+var mongoose   = require('mongoose')
 
 var financeLib = require('../../lib/financials')
-var Financial = require('../../models/financial')
-var utils         = require('../../lib/utils')
+var Financial  = require('../../models/financial')
+var utils      = require('../../lib/utils')
 
 var buyFee = 4.95
 

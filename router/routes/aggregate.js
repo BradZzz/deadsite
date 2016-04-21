@@ -23,11 +23,24 @@ String.prototype.capitalize = function() {
   return this.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
 }
 
+function resolvePromises (child) {
+    var deferred = Q.defer()
+    requestP({ uri: child.data.url, transform: function (body) {
+        return { domain : child.data.domain, url : child.data.url, title : child.data.title, cheerio : cheerio.load(body) }
+    }}).then(function(res){
+        deferred.resolve(res)
+    }).catch(function(err){
+        deferred.resolve({ url: child.data.url, err : err })
+    })
+    return deferred.promise
+}
+
 module.exports = function (app) {
 
     app.get('/agg/update', function (req, res) {
         if ('params' in req.query) {
             var url = 'https://www.reddit.com/r/' + req.query.params.replace(' ','+') + '/new.json?sort=hot&limit=100'
+
             request(url, function(error, response, html){
                 if (error) {
                     return res.status(500).json(error)
@@ -35,32 +48,80 @@ module.exports = function (app) {
                 var rData = []
                 var promises = []
                 var body = JSON.parse(response.body)
-                console.log(body.data.children)
-                console.log('< ------------ done init --------------- >')
                 _.each(body.data.children, function(child){
                     rData.push({ url : child.data.url , title : child.data.title })
                     if (child.data.url.indexOf('reddit') === -1 && child.data.url.indexOf('i.imgur') === -1) {
-                        promises.push(requestP({ uri: child.data.url, transform: function (body) {
-                            return { domain : child.data.domain, url : child.data.url, title : child.data.title, cheerio : cheerio.load(body) }
-                        } }))
+                        promises.push(resolvePromises(child))
                     }
                 })
                 Q.all(promises).then(function(body) {
                   var attribs = []
                   _.each(body, function(meta){
-                    var $ = meta.cheerio
-                    var imgs = _.map($('img'), function (value, key) {
-                      return value.attribs
-                    })
-                    var vids = _.map($('video'), function (value, key) {
-                      return value.attribs
-                    })
-                    var item = { cat : req.query.params.replace(' ','+'), url : meta.url, urlTitle : $('title').text(), title : meta.title, imgs : imgs, vids : vids }
-                    attribs.push(item)
+                    if (!('err' in meta)){
+                        var $ = meta.cheerio
+                        var imgs = _.map($('img'), function (value, key) {
+                          return value.attribs
+                        })
+                        var vids = _.map($('video'), function (value, key) {
+                          return value.attribs
+                        })
+
+                        /*var h1 = _.filter(_.map($('h1'), function (value, key) {
+                            var data = [value.attribs]
+                            console.log('< ---- 1 ---- >')
+                            console.log(getAll(value.children))
+                            console.log('< ---- 2 ---- >')
+                            console.log(data)
+                            console.log('< ---- 3 ---- >')
+                            //_.flatten(data,getAll(value.children))
+                            return data
+                        }),function(data){ return data })*/
+                        //console.log(h1)
+                        var h1 = []
+                        _.each($('h1'), function (value, key) {
+                            if (value.attribs) {
+                                h1.push(value.attribs)
+                            }
+                            if (value.children.length > 0) {
+                                console.log('< -- before -- >')
+                                console.log(_.flatten(h1,getAll(value.children)))
+                                h1 = _.flatten(h1,getAll(value.children))
+                                console.log(h1)
+                                console.log('< -- after -- >')
+                            }
+                        })
+
+                        console.log('< -- done -- >')
+
+                        console.log(h1)
+
+                        var h2 = _.map($('h2'), function (value, key) {
+                          return value.attribs
+                        })
+                        var h3 = _.map($('h3'), function (value, key) {
+                          return value.attribs
+                        })
+                        var h4 = _.map($('h4'), function (value, key) {
+                          return value.attribs
+                        })
+                        var span = _.map($('span'), function (value, key) {
+                          return value.attribs
+                        })
+                        var p = _.map($('p'), function (value, key) {
+                          return value.attribs
+                        })
+
+                        var item = { cat : req.query.params.replace(' ','+'), url : meta.url, urlTitle : $('title').text(),
+                            title : meta.title, imgs : imgs, vids : vids, h1 : h1, h2 : h2, h3 : h3, h4 : h4, p : p, span : span }
+
+                        attribs.push(item)
+                    }
                   })
-                  cache.get = attribs
-                  addAll(attribs).then(function(data){ return res.status(200).json(data) })
+                  //console.log(attribs)
+                  //cache.get = attribs
+                  //addAll(attribs).then(function(data){ return res.status(200).json(data) })
                 }, function(err) {
+                  console.log(err)
                   return res.status(500).json(err)
                 })
             })
@@ -68,6 +129,20 @@ module.exports = function (app) {
            return res.status(400).json('Bad Request')
         }
     })
+
+    function getAll(children){
+        var data = []
+        console.log('getAll')
+        _.each(children, function(child){
+            if (child.attribs) {
+                data.push(child.attribs)
+            }
+            //if (child.children.length > 0) {
+            //    data = _.flatten(data, getAll(child.children))
+            //}
+        })
+        return data
+    }
 
     function addAll(items){
         var deferred = Q.defer()
@@ -91,41 +166,16 @@ module.exports = function (app) {
             return res.status(200).json(cache.get)
         } else {
             if ('params' in req.query) {
-                var url = 'https://www.reddit.com/r/' + req.query.params.replace(' ','+') + '/new.json?sort=hot&limit=100'
-                console.log(url)
-                //var url = 'https://www.reddit.com/r/gifs+reallifedoodles/new.json?sort=new&limit=20'
-                request(url, function(error, response, html){
-                    if (error) {
-                        return res.status(500).json(error)
+                console.log(req.query.params.replace(' ','+'))
+                Site.find({
+                  'cat': req.query.params.replace(' ','+'),
+                }, function(err, links) {
+                    console.log(err)
+                    console.log(links)
+                    if (err) {
+                        return res.status(500).json(err)
                     }
-                    var rData = []
-                    var promises = []
-                    var body = JSON.parse(response.body)
-                    console.log(body.data.children)
-                    console.log('< ------------ done init --------------- >')
-                    _.each(body.data.children, function(child){
-                        rData.push({ url : child.data.url , title : child.data.title })
-                        if (child.data.url.indexOf('reddit') === -1 && child.data.url.indexOf('i.imgur') === -1) {
-                            promises.push(requestP({ uri: child.data.url, transform: function (body) {
-                                return { domain : child.data.domain, url : child.data.url, title : child.data.title, cheerio : cheerio.load(body) }
-                            } }))
-                        }
-                    })
-                    Q.all(promises).then(function(body) {
-                      var attribs = []
-                      _.each(body, function(meta){
-                        var $ = meta.cheerio
-                        var imgs = _.map($('img'), function (value, key) {
-                          return value.attribs
-                        })
-                        console.log($('title').text())
-                        attribs.push({ cat : req.query.params.replace(' ','+'), url : meta.url, urlTitle : $('title').text(), title : meta.title, imgs : imgs })
-                      })
-                      cache.get = attribs
-                      return res.status(200).json(attribs)
-                    }, function(err) {
-                      return res.status(500).json(err)
-                    })
+                    return res.status(200).json(links)
                 })
             } else {
                return res.status(400).json('Bad Request')

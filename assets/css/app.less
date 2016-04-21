@@ -4,6 +4,11 @@
 @import "definitions.less";
 
 /* Colors */
+@theme-1:   #ffffff;
+@theme-2:   #ffffff;
+@theme-3:   #ffffff;
+@theme-4:   #ffffff;
+
 @hue-1:   #b4e5c1;
 @hue-2:   #55c78b;
 @hue-3:   #35948d;
@@ -292,130 +297,69 @@ button.md-raised {
     margin: 30vh auto 0 auto;
 }
 
+
+h1, h2, h3, h4 {
+    color : @theme-3;
+}
 .header {
-    .nav-media-wrapper {
-        .transition(all, 0.5s);
-        .nav-background {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            background: gray;
-            opacity : 0;
-            &:hover {
-                opacity : .2;
-            }
-        }
-    }
-    .nav-media {
-        &:hover {
-            border: 1px solid #fff;
-        }
-    }
-    md-content.top-nav {
-        color: white !important;
-    }
-    .nav-icons .nav-home {
-        text-align: right;
-        max-width: 60px;
-        margin-right: 80px;
-    }
-    .profile-avatar {
-        border: 1px solid @grey-full;
-    }
+    background : @theme-4;
+}
+.background {
+    background : @theme-1;
+}
+.card {
+    background : @theme-2;
+}
+
+.wallpaper {
+    background-repeat: no-repeat !important;
+    background-size: 100% 100% !important;
 }
 
 .main {
-    .parent {
-        &:hover {
-            opacity: .2;
-        }
+    height: 100%;
+    .transition(all, 0.75s, ease-in-out);
+    .layer {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        opacity: 1;
     }
-    .sq-button {
-        max-height: 20px;
-        max-width: 50px;
+    .alt1 {
+        background: #485563; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #485563 , #29323c); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #485563 , #29323c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
-    .nav-title {
-        font-weight: bold;
-        border-bottom: 1px solid;
-        padding-bottom: 10px;
-        margin-bottom: 20px;
+    .alt2 {
+        background: #134E5E; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #134E5E , #71B280); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #134E5E , #71B280); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
-    .img-wrapper {
-        position: relative;
-        min-height: 400px;
-        max-height: 400px;
-        min-width: 300px;
-        max-width: 300px;
-        img {
-            position: absolute;
-            max-height: 100%;
-            max-width: 100%;
-            min-width: 100%;
-            min-height: 100%;
-        }
-        .show-box {
-            .transition(opacity, 0.5s);
-            position: absolute;
-            max-height: 100%;
-            max-width: 100%;
-            min-width: 100%;
-            min-height: 100%;
-            opacity: 0;
-            &:hover {
-                background: black;
-                opacity: .5;
-            }
-        }
+    .alt3 {
+        background: #606c88; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #606c88 , #3f4c6b); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #606c88 , #3f4c6b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
-}
-
-.local-player {
-    border: 2px solid;
-    border-radius: 5px;
-    height: 90vh;
-    .videogular-container {
-    	width: 100%;
-    	height: 320px;
-    	margin: auto;
-    	overflow: hidden;
+    .alt4 {
+        background: #a73737; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #a73737 , #7a2828); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #a73737 , #7a2828); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
-}
-
-.media {
-    .content {
-        .media-image-wrapper {
-            position: relative;
-            min-height: 220px;
-            max-height: 220px;
-            min-width: 150px;
-            max-width: 150px;
-            .media-image {
-                width: 100%;
-                height: 100%;
-                border: 2px solid #000;
-                border-radius: 5px;
-                position: absolute;
-            }
-            .media-overlay {
-                .transition(all, 0.5s);
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                .media-overlay-background {
-                    background:gray;
-                    width: 100%;
-                    height:100%;
-                    border-radius: 5px;
-                    margin: 2px;
-                    position: absolute;
-                    opacity : .5;
-                }
-                opacity : 0;
-                &:hover {
-                  opacity : 1;
-                }
-            }
-        }
+    .alt5 {
+        background: #4b6cb7; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #4b6cb7 , #182848); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #4b6cb7 , #182848); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+    .animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+      transition: all linear 0.5s;
+    }
+    .animate-show.ng-hide {
+      line-height: 0;
+      opacity: 0;
+      padding: 0 10px;
     }
 }
 

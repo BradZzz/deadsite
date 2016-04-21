@@ -7,7 +7,7 @@ angular.module('ambrosia').directive('sePreview', ['$rootScope', '$http', '$sce'
       callback: '&'
     },
     link: function (scope, element, attrs) {
-        console.log('stats', scope, this)
+        //console.log('stats', scope, this)
     }
   }
 }])
