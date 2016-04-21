@@ -316,6 +316,21 @@ h4 {
   display: block;
   opacity: 1;
 }
+.main .main-logo {
+  z-index: 1;
+  background: url('/assets/img/test/generic_logo.png');
+  height: 300px;
+  width: 200px;
+  outline: none;
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+.main .main-logo:hover {
+  height: 325px;
+  width: 225px;
+}
 .main .alt1 {
   background: #485563;
   /* fallback for old browsers */

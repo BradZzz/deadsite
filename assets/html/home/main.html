@@ -1,6 +1,6 @@
 <div class="main" style="color: white;" layout="column" layout-align="center center">
 	<div ng-repeat="wall in ctrl.walls" ng-hide="$index !== ctrl.position" class="wallpaper layer animate-show" ng-class="ctrl.walls[$index]"></div>
-	<div ng-click="ctrl.logoClick()" class="wallpaper" style="z-index: 1; background:url('/assets/img/test/generic_logo.png'); height: 300px; width: 200px; outline: none;"></div>
+	<div ng-click="ctrl.logoClick()" class="wallpaper main-logo"></div>
 	<h3 style="z-index: 1;"><b>The Journey Begins:</b></h3>
 	<b style="z-index: 1;"><se-timer date='{{ ctrl.countdown }}'>&nbsp;</se-timer></b>
 </div>
