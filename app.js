@@ -79,11 +79,6 @@ if (app.get('prod')) {
 }
 
 // setup routes
-require('./router/routes/aggregate')(app)
-require('./router/routes/cast')(app)
-require('./router/routes/ledger')(app)
-require('./router/routes/login')(app)
-require('./router/routes/stock')(app)
 require('./router/routes/views')(app)
 
 app.listen(app.get('port'), function () {

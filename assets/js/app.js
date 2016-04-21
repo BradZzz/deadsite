@@ -7,14 +7,8 @@ var modules = [
   'angular-loading-bar',
   'ui.bootstrap',
   'ngFlash',
-  'ngFileUpload',
   'ngMdIcons',
   'ngSanitize',
-  'com.2fdevs.videogular',
-  'com.2fdevs.videogular.plugins.controls',
-  'com.2fdevs.videogular.plugins.overlayplay',
-  'com.2fdevs.videogular.plugins.poster',
-  'angular-carousel'
 ]
 
 var role = {
@@ -42,32 +36,14 @@ function ($locationProvider, $stateProvider, $urlRouterProvider) {
 }])
 
 app.run(
-['$rootScope', '$state', '$stateParams', 'seAuthorization', 'sePrincipal',
-function ($rootScope, $state, $stateParams, seAuthorization, sePrincipal) {
+['$rootScope', '$state', '$stateParams',
+function ($rootScope, $state, $stateParams) {
   $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
     console.log("state", toState, toParams, fromState, fromParams)
 
     $rootScope.toState = toState
     $rootScope.toStateParams = toParams
 
-    console.log('toState')
-    if (sePrincipal.isIdentityResolved()) {
-        console.log('identity resolved')
-        seAuthorization.authorize()
-    }
-
+    console.log('toState', $rootScope.toState)
   })
 }])
-
-app.config(['$mdThemingProvider',
-function ($mdThemingProvider) {
-  $mdThemingProvider.theme('default')
-    .primaryPalette('blue')
-    .accentPalette('orange')
-    .backgroundPalette('grey', {
-      'default': '50',
-      'hue-1': '100',
-      'hue-2': '100',
-      'hue-3': '200'
-    })
-}]);
