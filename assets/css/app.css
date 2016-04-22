@@ -322,14 +322,14 @@ h4 {
   height: 300px;
   width: 200px;
   outline: none;
+  opacity: .6;
   -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
   -o-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
 .main .main-logo:hover {
-  height: 325px;
-  width: 225px;
+  opacity: 1;
 }
 .main .alt1 {
   background: #485563;
