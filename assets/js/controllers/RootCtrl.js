@@ -19,8 +19,10 @@ function ($rootScope, $state, $stateParams, $timeout, cfpLoadingBar)
   }
 
   $rootScope.alert = function (message) {
-      alert(message)
+    alert(message)
   }
+
+  $rootScope.showHexGrid = false
 
   // Returns the version of Internet Explorer
   function getIsIE () {
