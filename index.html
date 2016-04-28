@@ -66,7 +66,7 @@
   <md-progress-circular md-mode="indeterminate"></md-progress-circular>
 </div>
 <div style="height:100%;" id='content' ui-view ng-class="{'show' : !$root.loading, 'hide' : $root.loading}"></div>
-<se-hex ng-class="{'hide' : !$root.showHexGrid || $root.toState.name !== 'home'}" class="hex-container"></se-hex>
+<se-hex ng-class="{'hide' : !$root.showHexGrid || $root.toState.name !== 'home'}" class="center-vertical-parent hex-container"></se-hex>
 
 <!-- build:js /build/js/app.min.js -->
 <script src="/assets/third-party/angular/angular.min.js"></script>

@@ -53,7 +53,7 @@ angular.module('ambrosia').directive('seHex', ['$rootScope', '$window', 'seTempl
                 var svg = d3.select(".hex-container").append("svg")
                     .attr("width", width)
                     .attr("height", height)
-                    .attr("style","padding-top: 80px; width : " + dims.innerWidth + "px !important;")
+                    .attr("style","padding-top: 40px; width : " + dims.innerWidth + "px !important;")
                     .attr("class","selectable hex-child");
 
                 var defs = svg.append("defs")
