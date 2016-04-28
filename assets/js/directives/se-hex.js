@@ -22,10 +22,10 @@ angular.module('ambrosia').directive('seHex', ['$rootScope', '$window', 'seTempl
             })
 
             function returnDimensions (size) {
-                return size === 0 ? { width : 1000, height : 550, radius : 50, padding : '0' } :
-                    size === 1 ? { width : 800, height : 750, radius : 50, padding : '0' } :
-                    size === 2 ? { width : 600, height : 950, radius : 50, padding : '0' } :
-                    { width : 300, height : 1250, radius : 50, padding : '0' }
+                return size === 0 ? { width : 1000, height : 550, radius : 50, innerWidth : 1100 } :
+                    size === 1 ? { width : 800, height : 750, radius : 50, innerWidth : 900 } :
+                    size === 2 ? { width : 600, height : 950, radius : 50, innerWidth : 700 } :
+                    { width : 300, height : 1250, radius : 50, innerWidth : 400 }
             }
 
             var render = function(){
@@ -53,7 +53,7 @@ angular.module('ambrosia').directive('seHex', ['$rootScope', '$window', 'seTempl
                 var svg = d3.select(".hex-container").append("svg")
                     .attr("width", width)
                     .attr("height", height)
-                    .attr("style","padding-top: 80px; padding-left : " + dims.padding + ";")
+                    .attr("style","padding-top: 80px; width : " + dims.innerWidth + "px !important;")
                     .attr("class","selectable hex-child");
 
                 var defs = svg.append("defs")

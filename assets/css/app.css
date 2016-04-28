@@ -201,11 +201,6 @@ button.md-raised.active:hover {
     max-width: 350px !important;
   }
 }
-@media screen and (max-width: 440px) {
-  .hex-container .hex-child {
-    width: 100% !important;
-  }
-}
 .flash-bar {
   z-index: 100;
   position: absolute;
@@ -271,7 +266,6 @@ footer {
   z-index: 1;
 }
 .hex-container .hex-child {
-  width: 80%;
   display: block;
   margin: auto;
 }
