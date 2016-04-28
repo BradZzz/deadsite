@@ -1,5 +1,5 @@
-angular.module('ambrosia').controller('RootCtrl', ['$rootScope', '$state', '$stateParams', '$timeout', 'cfpLoadingBar',
-function ($rootScope, $state, $stateParams, $timeout, cfpLoadingBar)
+angular.module('ambrosia').controller('RootCtrl', ['$rootScope', '$state', '$stateParams', '$timeout', 'cfpLoadingBar', 'seTemplate',
+function ($rootScope, $state, $stateParams, $timeout, cfpLoadingBar, seTemplate)
 {
   $rootScope.safeApply = function (fn) {
     var $root = this.$root

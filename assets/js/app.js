@@ -30,6 +30,10 @@ function ($locationProvider, $stateProvider, $urlRouterProvider) {
     url: "/",
     templateUrl: "/assets/html/home/main.html",
     controller: "MainCtrl",
+  }).state('legal', {
+    url: "/legal",
+    templateUrl: "/assets/html/home/legal.html",
+    controller: "LegalCtrl"
   })
 
   $locationProvider.html5Mode(true)

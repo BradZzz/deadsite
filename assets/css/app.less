@@ -188,85 +188,13 @@ button.md-raised {
     }
 }
 
-@media screen and (max-width: 960px) {
-    .profile {
-        .content {
-            .profile-wrapper {
-                width:100% !important;
-            }
-        }
-    }
-    .analytics {
-        .content {
-            height : 160vh !important;
-            .header-details-wrapper {
-                height:150px !important;
-            }
-        }
+@media screen and (max-width: 1060px) {
+    .hex-container {
+        width: 100% !important;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .header .nav-icons .nav-home {
-        margin-right: 30px !important;
-    }
-    .profile {
-        .content {
-            height : 115vh !important;
-            .profile-avatar, .profile-overlay {
-                margin: 30px 0 0 24px !important;
-            }
-            .background-picker {
-                min-height:80px !important;
-                max-height:80px !important;
-                min-width:160px !important;
-                max-width:160px !important;
-                width:100% !important;
-            }
-            md-input-container.md-block {
-                padding-bottom: 10px !important;
-            }
-            .footer.md-raised {
-                margin: 5px auto 10px auto !important;
-            }
-        }
-    }
-    .analytics {
-        .content {
-            #breakdown-container {
-                min-width: 350px !important;
-                max-width: 350px !important;
-            }
-        }
-    }
-    .stock {
-        .content {
-            height:110vh !important;
-            .cost-wrapper {
-                align-items: flex-start !important;
-            }
-        }
-        .tiny-wrapper {
-            padding-top: 3px;
-            max-width: 50px !important;
-            .tiny {
-                min-width: 32px !important;
-                max-width: 32px !important;
-                min-height: 32px !important;
-                span {
-                    position: absolute !important;
-                    bottom: -5% !important;
-                    left: 37% !important;
-                }
-            }
-        }
-        .large {
-            max-width: 60px;
-            min-width: 60px;
-            max-height: 60px;
-            min-height: 60px;
-        }
-    }
 }
 
 .flash-bar {
@@ -306,29 +234,49 @@ h1, h2, h3, h4 {
   }
 }
 
-.hexagon {
-  fill: white;
-  pointer-events: all;
+.footer-wrapper {
+    background:white;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index : 10;
 }
 
-.hexagon path {
-  -webkit-transition: fill 250ms linear;
-  transition: fill 250ms linear;
+.hex-container {
+    top: 15%;
+    left: 0;
+    width: 100%;
+    height: 80vh;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 1;
+    .hex-child {
+        width:100%;
+        display: block;
+        margin: auto;
+        .hexagon {
+          fill: white;
+          pointer-events: all;
+          & path {
+            -webkit-transition: fill 250ms linear;
+            transition: fill 250ms linear;
+          }
+          & .fill {
+            fill: red;
+          }
+        }
+        .mesh {
+          fill: none;
+          stroke: #000;
+          stroke-opacity: .2;
+          pointer-events: none;
+        }
+    }
 }
 
 .hexagon :hover {
-  fill: pink;
-}
-
-.hexagon .fill {
-  fill: red;
-}
-
-.mesh {
-  fill: none;
-  stroke: #000;
-  stroke-opacity: .2;
-  pointer-events: none;
+  opacity : .5;
 }
 
 .border {
@@ -336,6 +284,12 @@ h1, h2, h3, h4 {
   stroke: #000;
   stroke-width: 2px;
   pointer-events: none;
+}
+
+.section-legal {
+    h1, h2, h3, h4 {
+        color : black;
+    }
 }
 
 .main {
