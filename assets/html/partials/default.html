@@ -1,0 +1,4 @@
+<div ng-repeat="wall in ctrl.walls" ng-hide="$index !== ctrl.position" class="wallpaper layer animate-show" ng-class="ctrl.walls[$index]"></div>
+<div ng-click="ctrl.logoClick()" class="wallpaper main-logo"></div>
+<h3 class="default-header"><b>The Journey Begins:</b></h3>
+<div class="default-details"><se-timer date='{{ ctrl.countdown }}'>&nbsp;</se-timer></div>

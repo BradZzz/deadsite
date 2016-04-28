@@ -1,0 +1,25 @@
+<div class="section-intro" layout="column">
+	<div layout="row" layout-align="center center">
+		<a href="/"><img flex="38" flex-sm="100" class="logo" src="/assets/img/text-blast-logo.png" alt="Text Blast Logo" /></a>
+	</div>
+</div>
+
+<div class="section-legal" layout="column" layout-fill>
+	<md-content class="transparent">
+		<md-card name="privacy-policy" flex class="legal-card">
+			<md-card-content class="no-padding">
+				<div ng-include="'/assets/html/partials/privacy-policy.html'"></div>
+			</md-card-content>
+		</md-card>
+
+		<md-card name="terms-of-use" flex class="legal-card terms-of-use-card">
+			<md-card-content class="no-padding">
+				<div ng-include="'/assets/html/partials/terms-of-use.html'"></div>
+			</md-card-content>
+		</md-card>
+	</md-content>
+
+	<div class="content-wrapper">
+		<div ng-include="'/assets/html/partials/footer.html'"></div>
+	</div>
+</div>
