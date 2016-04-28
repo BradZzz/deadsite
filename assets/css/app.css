@@ -190,6 +190,16 @@ button.md-raised.active:hover {
   .hex-container {
     width: 100% !important;
   }
+  .section-intro img {
+    min-width: 600px !important;
+    max-width: 600px !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .section-intro img {
+    min-width: 350px !important;
+    max-width: 350px !important;
+  }
 }
 .flash-bar {
   z-index: 100;
@@ -239,6 +249,13 @@ h4 {
   left: 0;
   z-index: 10;
 }
+footer {
+  width: 100%;
+  height: 50px;
+  padding: 0 30px;
+  background: white;
+  color: black;
+}
 .hex-container {
   top: 15%;
   left: 0;
@@ -278,6 +295,13 @@ h4 {
   stroke: #000;
   stroke-width: 2px;
   pointer-events: none;
+}
+.section-intro img {
+  border-radius: 5px;
+  margin: 5px 5px 10px 5px;
+  border: 3px solid #000;
+  min-width: 800px;
+  max-width: 800px;
 }
 .section-legal h1,
 .section-legal h2,
