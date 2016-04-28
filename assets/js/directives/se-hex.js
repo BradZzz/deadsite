@@ -9,7 +9,7 @@ angular.module('ambrosia').directive('seHex', ['$rootScope', '$window', 'seTempl
             var size = 0
 
             function returnSize () {
-                return $window.innerWidth > 1230 ? 0 : $window.innerWidth > 970 ? 1 : $window.innerWidth > 720 ? 2 : $window.innerWidth > 470 ? 3 : 4;
+                return $window.innerWidth > 1300 ? 0 : $window.innerWidth > 1085 ? 1 : $window.innerWidth > 760 ? 2 : 3;
             }
 
             angular.element($window).bind('resize', function (e) {
@@ -22,11 +22,10 @@ angular.module('ambrosia').directive('seHex', ['$rootScope', '$window', 'seTempl
             })
 
             function returnDimensions (size) {
-                return size === 0 ? { width : 1000, height : 550, radius : 50, padding : '13%' } :
-                    size === 1 ? { width : 800, height : 750, radius : 50, padding : '10%' } :
-                    size === 2 ? { width : 600, height : 950, radius : 50, padding : '15%' } :
-                    size === 3 ? { width : 300, height : 1250, radius : 50, padding : '20%' } :
-                    { width : 300, height : 1250, radius : 50, padding : '10px' }
+                return size === 0 ? { width : 1000, height : 550, radius : 50, padding : '0' } :
+                    size === 1 ? { width : 800, height : 750, radius : 50, padding : '0' } :
+                    size === 2 ? { width : 600, height : 950, radius : 50, padding : '0' } :
+                    { width : 300, height : 1250, radius : 50, padding : '0' }
             }
 
             var render = function(){
