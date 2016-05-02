@@ -48,9 +48,9 @@ angular.module('ambrosia').directive('seHex', ['$rootScope', '$window', 'seTempl
                 var path = d3.geo.path()
                     .projection(projection);
 
-                $('.hex-container').empty()
+                $('.hex-parent').empty()
 
-                var svg = d3.select(".hex-container").append("svg")
+                var svg = d3.select(".hex-parent").append("svg")
                     .attr("width", width)
                     .attr("height", height)
                     .attr("style","padding-top: 40px; width : " + dims.innerWidth + "px !important;")
