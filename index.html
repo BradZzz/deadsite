@@ -67,18 +67,6 @@
 </div>
 <div style="height:100%;" id='content' ui-view ng-class="{'show' : !$root.loading, 'hide' : $root.loading}"></div>
 <div class="hex-container">
-  <div style="width:100%;">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- Default Dynamic Ad -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-1665219889928900"
-         data-ad-slot="2113200752"
-         data-ad-format="auto"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
   <se-hex ng-class="{'hide' : !$root.showHexGrid || $root.toState.name !== 'home'}" class="center-vertical-parent hex-parent" style="width:100%;"></se-hex>
 </div>
 
@@ -110,12 +98,14 @@
 <script src="/assets/js/services/se-template.js"></script>
 <script src="/assets/js/services/se-static.js"></script>
 
+<script src="/assets/js/directives/se-ad.js"></script>
 <script src="/assets/js/directives/se-timer.js"></script>
 <script src="/assets/js/directives/se-hex.js"></script>
 <!-- endbuild -->
 
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
